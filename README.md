@@ -30,3 +30,6 @@ Tachometer uses falling-edge interrupts, normally **2 pulses per revolution**, w
 
 - **Keep the device on a trusted local network. Do not port-forward it.**
 - This simple sketch talks to Home Assistant via **HTTP** so it can work with default local installs. **The long-lived token goes over the network without transport encryption** on HTTP. Protect the Wi-Fi network and Home Assistant token. For better security you can use HTTPS with proper certificate verification, which requires adapting the HTTP client code, or use MQTT with credentials/TLS.
+
+
+- AN NPN transistor is not always needed, but is generally the safer option.
