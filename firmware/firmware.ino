@@ -32,7 +32,7 @@ constexpr uint8_t PWM_PIN = 3;
 constexpr uint8_t TACH_PIN = 4;
 constexpr uint32_t PWM_FREQUENCY_HZ = 25000;
 constexpr uint8_t PWM_RESOLUTION_BITS = 8;  // 0..255
-constexpr uint32_t PM_POLL_MS = 30000;
+constexpr uint32_t PM_POLL_MS = 200;
 constexpr uint32_t PM_TIMEOUT_MS = 90000;   // stale PM data -> 100% in Auto
 constexpr uint32_t RPM_MEASURE_MS = 5000;
 constexpr uint8_t TACH_PULSES_PER_REV = 2;  // standard PC fan
@@ -66,9 +66,9 @@ void IRAM_ATTR tachInterrupt() {
 }
 
 uint8_t autoSpeedForPM(float pm) {
-  if (pm < 5.0f) return 25;
-  if (pm < 12.0f) return 35;
-  if (pm < 35.0f) return 60;
+  if (pm < 5.0f) return 0;
+  if (pm < 12.0f) return 0;
+  if (pm < 35.0f) return 20;
   if (pm < 75.0f) return 85;
   return 100;
 }
