@@ -130,10 +130,9 @@ void pollHomeAssistant() {
   bool valid = false;
   float newPM = NAN;
   if (status == HTTP_CODE_OK) {
-    // A typical HA state payload is small; limit retained input size.
     String body = http.getString();
     if (body.length() < 16384) {
-      JsonDocument doc;                 // ArduinoJson 7.x
+      JsonDocument doc;
       if (!deserializeJson(doc, body)) {
         const char* value = doc["state"] | "";
         char* end = nullptr;
@@ -151,7 +150,7 @@ void pollHomeAssistant() {
   pmAvailable = valid;
   if (valid) {
     pm25 = newPM;
-    lastPMReadMs = millis(); // polling same unchanged reading counts as fresh
+    lastPMReadMs = millis();
     Serial.printf("PM2.5: %.1f ug/m3\n", pm25);
   } else {
     Serial.printf("Home Assistant PM2.5 unavailable (HTTP %d). Check URL, token, entity.\n", status);
@@ -171,7 +170,7 @@ void sendState() {
   out["manual"] = manualSpeed;
   out["applied"] = appliedSpeed;
   out["rpm"] = fanRPM;
-  out["pm25"] = pmIsFresh() ? pm25 : NAN; // ArduinoJson serializes NaN as null
+  out["pm25"] = pmIsFresh() ? pm25 : NAN;
   out["ha_ok"] = pmIsFresh();
   out["wifi_ok"] = WiFi.status() == WL_CONNECTED;
   String payload;
@@ -216,7 +215,7 @@ void setManualSpeed() {
   sendState();
 }
 
-// Phone interface: simple labels only, no Auto/Manual description text.
+// UI
 const char PAGE_HTML[] PROGMEM = R"HTMLPAGE(
 <!doctype html>
 <html lang="en">
@@ -326,7 +325,7 @@ void setup() {
   Serial.begin(115200);
   delay(200);
 
-  // NPN OFF = fan PWM line HIGH = usually full fan speed at startup.
+  // NPN OFF = fan PWM line HIGH = usually full fan speed at startup
   pinMode(PWM_PIN, OUTPUT);
   digitalWrite(PWM_PIN, LOW);
   pwmReady = ledcAttach(PWM_PIN, PWM_FREQUENCY_HZ, PWM_RESOLUTION_BITS);
@@ -341,7 +340,7 @@ void setup() {
   automaticMode = settings.getBool("auto", true);
   manualSpeed = settings.getUChar("manual", 50);
   if (manualSpeed > 100) manualSpeed = 50;
-  // Force the first duty update even when target is the default 100%.
+
   appliedSpeed = 255;
   applyFanSpeed();
 
@@ -367,9 +366,9 @@ void setup() {
 
   ArduinoOTA.setHostname(HOSTNAME);
   ArduinoOTA.setPassword(OTA_PASSWORD);
-  ArduinoOTA.begin(); // Arduino IDE network OTA (not ESPHome OTA)
+  ArduinoOTA.begin();
 
-  lastPMPollMs = millis() - PM_POLL_MS; // Poll immediately when Wi-Fi is ready
+  lastPMPollMs = millis() - PM_POLL_MS;
 }
 
 void loop() {
@@ -397,7 +396,7 @@ void loop() {
     lastPMPollMs = millis();
     pollHomeAssistant();
   }
-  // Re-evaluate Auto if the last measurement becomes stale.
+
   applyFanSpeed();
   delay(2);
 }
