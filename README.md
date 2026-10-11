@@ -8,7 +8,7 @@ Controls a standard **12 V, 4-pin PWM PC fan** through an **NPN transistor**. It
  A fan with a nonstandard actively driven tach signal may require level shifting.
 - The fan receives 12 V directly from its own power supply. Do not connect fan from the ESP.
 - Fan and ESP32 grounds must be connected together.
-- NPN logic inversion is handled in the sketch: **GPIO3 transistor drive duty = 100 − requested fan PWM %**. At 100% request, NPN is OFF and the fan's PWM input is HIGH.
+- NPN logic inversion is handled **GPIO3 transistor drive duty = 100 − requested fan PWM %**. At 100% request, NPN is OFF and the fan's PWM input is HIGH.
 
 ## PM2.5 automation
 
