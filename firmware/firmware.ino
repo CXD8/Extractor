@@ -15,7 +15,7 @@ const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
 // Use the local IP of Home Assistant
 // This HTTP example sends the HA token over your LOCAL NETWORK unencrypted.
 // Keep it on a trusted LAN, do not expose this device publicly.
-const char* HA_BASE_URL = "http://192.168.1.20:8123";
+const char* HA_BASE_URL = "http://192.168.1.xx:8123";
 const char* HA_PM25_ENTITY = "sensor.replace_with_your_pm25_sensor";
 // Create this under Home Assistant Profile > Security > Long-Lived Access Tokens.
 // The ESPHome API encryption key is NOT a Home Assistant REST token.
