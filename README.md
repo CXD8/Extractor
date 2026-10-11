@@ -4,6 +4,8 @@ A smart solder extractor
 # ESP32-C3 powered solder fume extractor
 
 Controls a standard **12 V, 4-pin PWM PC fan** through an **NPN transistor**. It reads a numeric PM2.5 sensor entity from Home Assistant, lets you switch between automatic and manual control in a local phone browser, and reports tachometer RPM on that web page.
+- The current housing is for a 6025 fan
+- Modular, only 3D print what you need, you can stack carbon filter with hepa or only use carbon, or add a duct as you wish.
 
  A fan with a nonstandard actively driven tach signal may require level shifting.
 - The fan receives 12 V directly from its own power supply. Do not connect fan from the ESP.
