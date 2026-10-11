@@ -11,7 +11,7 @@ Controls a standard **12 V, 4-pin PWM PC fan** through an **NPN transistor**. It
 - The fan receives 12 V directly from its own power supply. Do not connect fan from the ESP.
 - Fan and ESP32 grounds must be connected together.
 - NPN logic inversion is handled **GPIO3 transistor drive duty = 100 − requested fan PWM %**. At 100% request, NPN is OFF and the fan's PWM input is HIGH.
-- 
+  
 Housing
 ![housing](images/housing.PNG)
 
@@ -31,8 +31,6 @@ Schematic
 - Recommended to change based on your own fan values
 
 The sketch reads HA via the [Home Assistant REST API](https://developers.home-assistant.io/docs/api/rest/), normally every **2 seconds**. It parses the sensor's `state` as a number. The same reading at successive successful polls is **still considered fresh**. In Auto mode, unknown values, connection failures, Wi-Fi outages or a reading older than **90 seconds** command 100% fan speed. Manual mode can still control the fan when Home Assistant is offline, as long as you're on the controller's LAN.
-
-Tachometer uses falling-edge interrupts, normally **2 pulses per revolution**, with RPM calculated every **5 seconds**. Change `TACH_PULSES_PER_REV` if the fan's specifications differ.
 
 ## Security and Home Assistant differences
 
