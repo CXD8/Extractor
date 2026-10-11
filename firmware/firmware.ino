@@ -57,7 +57,6 @@ volatile uint32_t tachPulses = 0;
 volatile uint32_t lastTachPulseUs = 0;
 
 void IRAM_ATTR tachInterrupt() {
-  // Suppress electrical noise; 150us is much shorter than a normal PC fan pulse.
   const uint32_t nowUs = micros();
   if ((uint32_t)(nowUs - lastTachPulseUs) >= 150) {
     ++tachPulses;
@@ -86,9 +85,9 @@ void applyFanSpeed() {
   if (target == appliedSpeed && pwmReady) return;
   appliedSpeed = target;
   if (pwmReady) {
-    // NPN common-emitter inverts PWM: fan input HIGH = fan on.
+    // NPN common-emitter inverts PWM fan input HIGH = fan on.
     const uint32_t npnDuty = (uint32_t)((100UL - appliedSpeed) * 255UL / 100UL);
-    ledcWrite(PWM_PIN, npnDuty); // Arduino-ESP32 core 3.x: pin, duty
+    ledcWrite(PWM_PIN, npnDuty);
   }
 }
 
