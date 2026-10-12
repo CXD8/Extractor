@@ -39,3 +39,16 @@ The sketch reads HA via the [Home Assistant REST API](https://developers.home-as
 
 
 - AN NPN transistor is not always needed, but is generally the safer option.
+
+## Bill of Materials (BOM)
+## Bill of Materials (BOM)
+
+| Qty | Component | Links |
+|---|---|---|
+| 1 | ESP32-C3-MINI | https://www.aliexpress.com/item/1005007479144456.html |
+| 1 | 6025 12V 4-pin PWM Fan | https://www.aliexpress.com/item/1005006576690634.html |
+| 1 | 2N3904 NPN Transistor | https://www.aliexpress.com/item/1005007205386825.html |
+| 1 | 1 kΩ Resistor | https://www.aliexpress.com/item/1005002580245461.html |
+| 4 | M3x5mm Screws | https://www.aliexpress.com/item/1005008709978631.html |
+| OPT | Activated Carbon Filter | https://www.aliexpress.com/item/1005003090089952.html |
+| OPT | HEPA Filter | https://www.aliexpress.com/item/1005005965425985.html |
