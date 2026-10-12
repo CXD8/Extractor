@@ -41,7 +41,6 @@ The sketch reads HA via the [Home Assistant REST API](https://developers.home-as
 - AN NPN transistor is not always needed, but is generally the safer option.
 
 ## Bill of Materials (BOM)
-## Bill of Materials (BOM)
 
 | Qty | Component | Links |
 |---|---|---|
