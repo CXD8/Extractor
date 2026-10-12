@@ -1,8 +1,11 @@
-Qty,Component,Links
-1,ESP32-C3-MINI,https://www.aliexpress.com/item/1005007479144456.html
-1,6025 12V 4-pin PWM Fan,https://www.aliexpress.com/item/1005006576690634.html
-1,2N3904 NPN Transistor,https://www.aliexpress.com/item/1005007205386825.html
-1,1 kΩ Resistor,https://www.aliexpress.com/item/1005002580245461.html
-4,M3x5mm Screws,https://www.aliexpress.com/item/1005008709978631.html
-OPT,Activated Carbon Filter,https://www.aliexpress.com/item/1005003090089952.html
-OPT,HEPA Filter,https://www.aliexpress.com/item/1005005965425985.html
+Qty,Component,Price (USD),Links
+1,ESP32-C3-MINI,2.79,https://www.aliexpress.com/item/1005007479144456.html
+1,6025 12V 4-pin PWM Fan,13.86,https://www.aliexpress.com/item/1005006576690634.html
+1,2N3904 NPN Transistor,1.41,https://www.aliexpress.com/item/1005007205386825.html
+1,1 kΩ Resistor,2.00,https://www.aliexpress.com/item/1005002580245461.html
+4,M3x5mm Screws,1.85,https://www.aliexpress.com/item/1005008709978631.html
+OPT,Activated Carbon Filter,3.50,https://www.aliexpress.com/item/1005003090089952.html
+OPT,HEPA Filter,3.29,https://www.aliexpress.com/item/1005005965425985.html
+TOTAL,Required Components,21.91,
+TOTAL + HEPA,Excluding Carbon Filter,25.20,
+TOTAL + ALL,Including Both Filters,28.70,
